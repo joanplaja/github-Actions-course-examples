@@ -9,7 +9,7 @@ jobs:
   generate_message:
     runs-on: ubuntu-latest
     outputs:
-      message: ${{ steps.gha_build_and_push.outputs.message }}
+      message: ${{ steps.message.outputs.message }}
 
     steps:
 
