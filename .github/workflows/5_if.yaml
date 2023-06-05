@@ -1,0 +1,21 @@
+name: If Example
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        environment: [demo, production]
+    steps:
+
+      - name: Deploy Application to ${{ matrix.environment }}
+        run: echo "Deploying to ${{ matrix.environment }}"
+      
+      - name: Notification
+        if: matrix.environment == 'production'
+        run: echo "Notification Deployment to production completed."

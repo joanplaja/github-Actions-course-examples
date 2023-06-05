@@ -1,0 +1,30 @@
+name: Outputs Example
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate_message:
+    runs-on: ubuntu-latest
+    outputs:
+      message: ${{ steps.gha_build_and_push.outputs.message }}
+
+    steps:
+
+      - name: Joan
+        id: joan
+        run: echo "name=JOAN" >> $GITHUB_OUTPUT
+      # Here's an example of how to use an output from a previous step
+      - name: Generate Message
+        id: message
+        run: echo "message=Hi ${{ steps.joan.outputs.name }}" >> $GITHUB_OUTPUT
+
+  display_message:
+    runs-on: ubuntu-latest
+    needs: generate_message
+    steps:
+      # This step uses the output from the generate_message job
+      - name: Display Message
+        run: echo "${{ needs.generate_message.outputs.message }}"

@@ -1,0 +1,1 @@
+In the following repository, you can find a collection of examples that demonstrate the concepts explained in this [post](joanplaja.com/posts/courses/githubactions/1_basics/). These examples are designed to provide hands-on experience and showcase the power and versatility of GitHub Actions.

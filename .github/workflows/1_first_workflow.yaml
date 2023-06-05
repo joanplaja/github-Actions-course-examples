@@ -1,0 +1,16 @@
+
+name: 'First workflow'
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: STEP 1 - Checkout main branch
+        uses: actions/checkout@v3
+      - name: STEP 2 - List repository files
+        run: ls -la

@@ -1,0 +1,19 @@
+name: Parallel Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy DEMO
+        run: echo "Deploying DEMO"
+
+  deploy-prod:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy PROD
+        run: echo "Deploying PROD"

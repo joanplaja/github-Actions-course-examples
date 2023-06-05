@@ -1,0 +1,17 @@
+name: Strategy Example
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        environment: [development, staging, demo, production]
+    steps:
+
+      - name: Deploy Application to ${{ matrix.environment }}
+        run: echo "Deploying to ${{ matrix.environment }}"
